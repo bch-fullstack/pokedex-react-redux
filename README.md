@@ -36,3 +36,8 @@ Reference to https://pokedex.org/ for more inspiration
 **And** Make an API call to fetch the pokemon details with matching ID\
 **And** Update Redux store state\
 **And** Redirect user to /details/<bellsproutId> with its information
+
+### Feature: User views more details on Bellsprout
+**Then** Bellsprout abilities and other details are processed\
+**And** Display Bellsprout HP, Attack, Defense, Speed, Special Attack, Special Defenses ability in bar chart\
+**And** Display Bellsprout Weight (in kilogram), Catch rate, Gender Ratio (in percentage) in text format
