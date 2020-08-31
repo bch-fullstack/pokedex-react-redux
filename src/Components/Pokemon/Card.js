@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 class Card extends React.Component {
     render() {
@@ -11,14 +12,14 @@ class Card extends React.Component {
             <div className="col s12 m7">
                 <div className="card horizontal">
                     <div className="card-image">
-                        <img src={imgUrl} />
+                        <img src={ imgUrl } />
                     </div>
                     <div className="card-stacked">
                         <div className="card-content">
                             <p> { name } </p>
                         </div>
                         <div className="card-action">
-                            <a href="#">Go to detail</a>
+                            <Link to={'/details/' + id}>Details</Link>
                         </div>
                     </div>
                 </div>

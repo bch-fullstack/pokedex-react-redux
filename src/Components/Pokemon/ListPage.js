@@ -17,7 +17,7 @@ class ListPage extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="row">
                 {
                     this.state.data ?
                     this.state.data.results.map((pokemon, index) => <Card pokemon={pokemon} key={index} />) :
