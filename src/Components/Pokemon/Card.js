@@ -9,8 +9,8 @@ class Card extends React.Component {
         const imgUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`
 
         return (
-            <div className="col s12 m7">
-                <div className="card horizontal">
+            <div className="col s2 m2">
+                <div className="card vetical">
                     <div className="card-image">
                         <img src={ imgUrl } />
                     </div>

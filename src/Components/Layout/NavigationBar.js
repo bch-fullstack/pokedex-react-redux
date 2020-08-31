@@ -1,17 +1,16 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import SearchBar from './SearchBar'
 
 class NavigationBar extends React.Component {
     render() {
         return (
             <nav>
                 <div className="nav-wrapper container">
-                    <form>
-                        <div className="input-field">
-                            <input id="search" type="search" required />
-                            <label className="label-icon" htmlFor="search"><i className="material-icons">search</i></label>
-                            <i className="material-icons">close</i>
-                        </div>
-                    </form>
+                    <ul className="left">
+                        <Link to="/">Home</Link>
+                    </ul>
+                    <SearchBar/>
                 </div>
             </nav>
         )
