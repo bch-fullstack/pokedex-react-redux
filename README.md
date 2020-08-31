@@ -9,7 +9,7 @@ Reference to https://pokedex.org/ for more inspiration
 2. Integrate Thunk
 
 ### Feature: User browses Homepage
-**Given** PokeAPI https://pokeapi\co/api/v2/pokemon\
+**Given** PokeAPI https://pokeapi.co/api/v2/pokemon/ \
 **Given** The API provides 151 pokemons and can take parameters for limits and pagination\
 **Then** Dispatch action *GET_POKEMON* together with pagination parameter\
 **And** Make an API call to fetch the first 20 pokemons\
@@ -29,7 +29,7 @@ Reference to https://pokedex.org/ for more inspiration
 **Then** Dispatch action *SEARCH_POKEMON*\
 **And** Make an API call to fetch the pokemon details with matching names\
 **And** Update Redux store state\
-**And** Redirect user to /details/metapod with its information\
+**And** Redirect user to /details/metapod with its information
 
 ### Feature: User views more details on Bellsprout
 **Then** Dispatch action *SEARCH_POKEMON* together with payload of Bellsprout Unique ID\
