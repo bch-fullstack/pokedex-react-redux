@@ -6,11 +6,21 @@ Reference to https://pokedex.org/ for more inspiration
 ## DEVELOPMENT SPECS:
 
 1. Integrate Redux 
+install **redux**, **react-redux**\
+create a rootReducer\
+create a new store with rootReducer\
+connect your React app to the Redux store with Provider component\
+connect your React Component so it would be aware of Redux state updates (mapStateToProps)\
+dispatch a test action and console.log a message from rootReducer upon that action to comfirm your configuration\
+add an Action Creator, and move your test action there\
+
 2. Integrate Thunk
+install **redux-thunk** and import **thunk**\
+Action Creator can now dispatch a function that performs asynchronous tasks
 
 ### Feature: User browses Homepage
 **Given** PokeAPI https://pokeapi.co/api/v2/pokemon/ \
-**Given** The API provides 151 pokemons and can take parameters for limits and pagination\
+**Given** The API provides 1050 pokemons and takes offset, limit parameters for pagination\
 **Then** Dispatch action *GET_POKEMON* together with pagination parameter\
 **And** Make an API call to fetch the first 20 pokemons\
 **And** Update Redux store state\
@@ -35,7 +45,7 @@ Reference to https://pokedex.org/ for more inspiration
 **Then** Dispatch action *SEARCH_POKEMON* together with payload of Bellsprout Unique ID\
 **And** Make an API call to fetch the pokemon details with matching ID\
 **And** Update Redux store state\
-**And** Redirect user to /details/<bellsproutId> with its information
+**And** Redirect user to /details/*bellsproutId* with its information
 
 ### Feature: User views more details on Bellsprout
 **Then** Bellsprout abilities and other details are processed\
