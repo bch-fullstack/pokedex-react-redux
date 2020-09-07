@@ -1,6 +1,7 @@
 import React from 'react'
 import Card from './Card'
 import Pagination from '../Layout/Pagination'
+import { connect } from 'react-redux'
 
 class ListPage extends React.Component {
     constructor(props) {
@@ -8,23 +9,23 @@ class ListPage extends React.Component {
         this.state = {
             data: null
         };
-    }
+    }    
+    
     componentDidMount() {
-        fetch('https://pokeapi.co/api/v2/pokemon/?limit=20')
-            .then(resp => resp.json())
-            .then(data => this.setState({ data }))
-            .catch(err => console.log(err))
+        this.props.getPokemons();
+        
+        // fetch('https://pokeapi.co/api/v2/pokemon/?limit=20')
+        //     .then(resp => resp.json())
+        //     .then(data => this.setState({ data }))
+        //     .catch(err => console.log(err))
     }
 
     render() {
+        console.log(this.props.pokemons);
         return (
             <div>
                 <div className="row">
-                    {
-                        this.state.data ?
-                        this.state.data.results.map((pokemon, index) => <Card pokemon={pokemon} key={index} />) :
-                        'Loading...'
-                    }
+                    { this.props.pokemons.map((pokemon, index) => <Card pokemon={pokemon} key={index} />) }
                 </div>
                 <div className="row">
                     <Pagination></Pagination>
@@ -34,4 +35,20 @@ class ListPage extends React.Component {
     }
 }
 
-export default ListPage;
+const mapStateToProps = state => {
+    return {
+        pokemons: state.pokemons
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        getPokemons: () => {
+            dispatch({
+                type: 'GET_POKEMONS'
+            });
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ListPage);
