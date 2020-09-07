@@ -14,11 +14,6 @@ class ListPage extends React.Component {
     
     componentDidMount() {
         this.props.getPokemons();
-        
-        // fetch('https://pokeapi.co/api/v2/pokemon/?limit=20')
-        //     .then(resp => resp.json())
-        //     .then(data => this.setState({ data }))
-        //     .catch(err => console.log(err))
     }
 
     render() {
@@ -45,7 +40,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         getPokemons: () => {
-            dispatch(getPokemons())
+            getPokemons(dispatch)
         }
     }
 }

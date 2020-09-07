@@ -19,7 +19,9 @@ const rootReducer = (state = initialState, action) => {
     switch (action.type) { // check if action.type match any of the cases
         case 'GET_POKEMONS': // if action.type === 'GET_POKEMONS'
             console.log('Trying to get pokemons...');
+            console.log(action.pokemons);
             return state;
+            
         default: // if non of the cases match
             return state;
     }
