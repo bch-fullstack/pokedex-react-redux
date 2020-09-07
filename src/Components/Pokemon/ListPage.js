@@ -2,18 +2,11 @@ import React from 'react'
 import Card from './Card'
 import Pagination from '../Layout/Pagination'
 import { connect } from 'react-redux'
-import { getPokemons } from '../../store/actions/pokemonActions'
+import { initPokemon } from '../../store/actions/pokemonActions'
 
-class ListPage extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            data: null
-        };
-    }    
-    
+class ListPage extends React.Component { 
     componentDidMount() {
-        this.props.getPokemons();
+        this.props.initPokemon();
     }
 
     render() {
@@ -39,8 +32,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        getPokemons: () => {
-            getPokemons(dispatch)
+        initPokemon: () => {
+            initPokemon(dispatch)
         }
     }
 }

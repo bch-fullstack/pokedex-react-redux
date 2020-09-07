@@ -6,7 +6,7 @@ class Card extends React.Component {
     render() {
         const { name, url } = this.props.pokemon
         const id = url.split('/')[6]
-        const imgUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`
+        const imgUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon${id}.png`
 
         return (
             <div className="col s2 m2">
