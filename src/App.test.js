@@ -1,9 +1,9 @@
 import React from 'react';
-import { render } from '@testing-library/react';
 import App from './App';
+import { shallow, mount } from 'enzyme'
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+test('The <App> component structure', () => {
+  const wrap = shallow(<App></App>)
+  const container = wrap.find('.container')
+  expect(container).toHaveLength(1)
 });
