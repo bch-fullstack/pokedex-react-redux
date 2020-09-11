@@ -8,15 +8,17 @@ class DetailPage extends React.Component {
     }
 
     componentDidMount(){
-        const { id } = this.props.match.params;
+        const { id } = this.props.match.params; 
+        // a props name match, in which it finds an object name params, in which there an ID
         const detailUrl = `https://pokeapi.co/api/v2/pokemon/${id}`
-        fetch(detailUrl)
-            .then(resp => {
+        
+        fetch(detailUrl) // expecting a promise, resolved / rejected
+            .then(resp => { // resolved
                 if (!resp.ok) throw new Error("Not 2xx response")
-                else return resp.json()
+                else return resp.json() // returns another promise
             })
-            .then(data => this.setState({ data }))
-            .catch(err => console.log(err))
+            .then(data => this.setState({ data: data }))
+            .catch(err => console.log(err)) // rejected
     }
 
     render(){
