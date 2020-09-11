@@ -5,7 +5,7 @@ import DetailPage from './DetailPage'
 
 
 
-test('<DetailPage> should receive the id props', (done) => {
+test('<DetailPage> should receive the id props', (done) => { // add done as a parameter to activate waiting mode
     // when something beyond this point, makes a fetch call
     // mock the functionality of fetch, makes no API call, but return Promise.resolve()
     // as the API response
@@ -32,9 +32,12 @@ test('<DetailPage> should receive the id props', (done) => {
     // we expect the fetch call to be called with the following parameter
     expect(global.fetch).toHaveBeenCalledWith('https://pokeapi.co/api/v2/pokemon/25')
 
+    // process.nextTick allows us to wait for asynchronous call to be done
     process.nextTick(() => {
         // wrap.update()
         expect(wrap.find('.card-title').text()).toBe('pika')
-        done()
+        done() // by default will be called automatically
+        // we call it manually when we want our test to not complete while we are waiting for
+        // something asynchronous process
     })       
 });
